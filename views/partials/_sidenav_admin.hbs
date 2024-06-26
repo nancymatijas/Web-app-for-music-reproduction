@@ -1,0 +1,53 @@
+<div class="wrapper">
+
+    <nav id="sidebar">
+        <div id="dismiss">
+            <i class="bi bi-box-arrow-in-left"></i>
+        </div>
+
+        <div class="sidebar-header">
+            <h3>Music App</h3>
+        </div>
+
+        <ul class="navbar-nav mx-auto">
+            {{#if loggedIn }}
+                <li class="nav-item mt-2 mb-2 {{#is title "Music App"}} active {{/is}}">
+                    <a class="nav-link" href="/admin/dashboard_admin"><i class="bi bi-house-heart-fill"></i>Dashboard<span class="sr-only">(current)</span></a>
+                </li>
+
+                <li class="nav-item mt-2 mb-2 {{#is title "logout"}} active {{/is}}">
+                    <a class="nav-link" href="/admin/logout"><i class="bi bi-box-arrow-left"></i></i>Logout Admin</a>
+                </li>
+            {{else}}
+                <li class="nav-item mt-2 mb-2 {{#is title "Login"}} active {{/is}}">
+                    <a class="nav-link" href="/admin/login"><i class="bi bi-box-arrow-right"></i></>Login Admin</a>
+                </li>
+                <li class="nav-item mt-2 mb-2 {{#is title "Sign Up"}} active {{/is}}">
+                    <a class="nav-link" href="/admin/signup"><i class="bi bi-person-fill-add"></i>Sign Up Admin</a>
+                </li>
+            {{/if}}
+
+        </ul>
+    </nav>
+
+    <div id="content">
+
+        <nav class="navbar navbar-expand-md" id="navbar-top">
+            <div class="container-fluid">
+
+                <button type="button" id="sidebarCollapse" class="btn" style="background-color: black;">
+                    <i class="bi bi-text-left"></i>
+                </button>
+
+                <ul class="navbar-nav">
+                    {{#if loggedIn }}
+                        <li class="nav-item" id="admin">
+                            <div class="nameLogAdmin">{{username}}<i class="bi bi-person-fill-check"></i></div> 
+                        </li>
+                    {{/if}}    
+                </ul>
+
+            </div>
+        </nav>
+    </div>
+</div>

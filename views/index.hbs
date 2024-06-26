@@ -1,0 +1,24 @@
+ <link rel="stylesheet" type="text/css"href="index.css">  
+<br>
+<br>
+<br>
+<br>
+<h1>New Releases</h1>
+<div id="layout-row" class="row">
+  {{#each albums}}
+  <div class="col-6 col-sm-4 col-md-4 col-lg-2 mb-2 ml-0 mt-5 search-song">
+    <a href="/album/{{this.id}}">
+      <div class="image-overlay">
+        <img class="card-img-top" id="songImageOne" src="{{this.imageUrl}}" alt="Card image cap">
+        <form action="/playlist_albums/add" method="POST">
+          <input type="hidden" name="albumId" value="{{this.id}}">
+          <button type="submit" class="bi bi-plus-circle-fill icon"></button>
+        </form>
+      </div>
+      <div class="overlay" data-preview-url="{{this.preview_url}}" data-album-image="{{this.imageUrl}}" data-song-name="{{this.name}}">
+        <h5 class="album-name pt-4 pb-2" id="songNameOne" value="{{firstAlbumName}}">{{this.name}} by {{this.artists.[0].name}}</h5>
+      </div>
+    </a>
+  </div>
+  {{/each}}
+</div>

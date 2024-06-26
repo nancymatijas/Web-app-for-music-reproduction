@@ -1,0 +1,76 @@
+<style>
+  body{
+    margin-top: 100px;
+  }
+  table{
+    text-align: center;
+  }
+  th{
+    font-size: 20px;
+  }
+</style>
+<!-- user_details.hbs -->
+
+<h3>User Information</h3>
+<p>Username: {{user.username}}</p>
+<p>Email: {{user.email}}</p>
+<p>Id: {{user.id}}</p>
+
+<h3>Playlist Albums</h3>
+<table class="table table-hover table-dark">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">COVER IMAGE</th>
+      <th scope="col">ARTIST</th>
+      <th scope="col">ALBUM NAME</th>
+      <th scope="col">ACTION</th>
+    </tr>
+  </thead>
+  <tbody>
+    {{#each albums}}
+      <tr>
+        <td>{{@index}}</td>
+        <td><img src="{{this.cover_image_url}}" width="70px"></td>
+        <td>{{this.artist}}</td>
+        <td>{{this.album_name}}</td>
+        <td>
+          <form action="/admin/dashboard_admin/user/{{this.user_id}}/delete_album/{{this.id}}" method="POST">
+            <input type="hidden" name="albumId" value="{{this.id}}">
+            <button type="submit" class="btn btn-danger">DELETE</button>
+          </form>
+        </td>
+      </tr>
+     {{/each}}
+  </tbody>
+</table>
+
+
+<h3>Playlist Tracks</h3>
+<table class="table table-hover table-dark">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">COVER IMAGE</th>
+      <th scope="col">ARTIST</th>
+      <th scope="col">TRACK NAME</th>
+      <th scope="col">ACTION</th>
+    </tr>
+  </thead>
+  <tbody>
+    {{#each tracks}}
+      <tr>
+        <td>{{@index}}</td>
+        <td><img src="{{this.cover_image_url}}" width="70px"></td>
+        <td>{{this.artist}}</td>
+        <td>{{this.track_name}}</td>
+        <td>
+          <form action="/admin/dashboard_admin/user/{{this.user_id}}/delete_track/{{this.id}}" method="POST">
+            <input type="hidden" name="trackId" value="{{this.id}}">
+            <button type="submit" class="btn btn-danger">DELETE</button>
+          </form>
+        </td>
+      </tr>
+     {{/each}}
+  </tbody>
+</table>

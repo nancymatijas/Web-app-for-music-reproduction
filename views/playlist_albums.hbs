@@ -1,0 +1,26 @@
+<link rel="stylesheet" type="text/css"href="index.css">  
+<br>
+<br>
+<br>
+<br>
+<h1>Playlist Albums</h1>
+<div id="layout-row" class="row">
+  {{#each playlists_albums}}
+  <div class="col-6 col-sm-4 col-md-4 col-lg-2 mb-2 ml-0 mt-5 search-song">
+    <a href="/album/{{album_id}}">
+      <div class="image-overlay">
+        <img class="card-img-top" id="songImageOne" src="{{cover_image_url}}" alt="Card image cap">
+        <form action="/playlist_albums/delete" method="POST">
+          <input type="hidden" name="albumId" value="{{album_id}}">
+          <button type="submit" class="bi bi-x-circle-fill icon"></button>
+        </form>
+      </div>
+      <div class="overlay" data-preview-url="{{this.preview_url}}" data-album-image="{{cover_image_url}}" data-song-name="{{album_name}}">
+            <h5 class="album-name pt-4 pb-2" id="songNameOne">{{album_name}} by {{artist}}</h5>
+          </div>
+    </a>
+  </div>
+  {{/each}}
+</div>
+
+

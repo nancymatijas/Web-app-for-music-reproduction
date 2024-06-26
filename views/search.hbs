@@ -1,0 +1,24 @@
+<link rel="stylesheet" type="text/css"href="/index.css">  
+<br>
+<br>
+<br>
+<br>
+<h1>Search</h1>
+<div id="layout-row" class="row">
+  {{#each results}}
+  <div class="col-6 col-sm-4 col-md-4 col-lg-2 mb-2 ml-0 mt-5 search-song">
+    <span class="song" data-preview-url="{{this.preview_url}}">
+      <div class="image-overlay">
+        <img class="card-img-top" id="songImageOne" src="{{this.album.images.[0].url}}" alt="Card image cap">
+        <form action="/playlist_tracks/add" method="POST">
+          <input type="hidden" name="trackId" value="{{this.id}}">
+          <button type="submit" class="bi bi-plus-circle-fill icon"></button>
+        </form>
+      </div>
+      <div class="overlay" data-preview-url="{{this.preview_url}}" data-album-image="{{this.album.images.[0].url}}" data-song-name="{{this.name}}">
+        <h5 class="album-name pt-4 pb-2" id="songNameOne">{{this.name}} by {{this.artists.[0].name}}</h5> 
+      </div>
+    </span>
+  </div>
+  {{/each}}
+</div>

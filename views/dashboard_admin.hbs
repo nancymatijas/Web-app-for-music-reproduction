@@ -1,0 +1,110 @@
+<style>
+  body{
+    margin-top: 100px;
+  }
+
+  .actions-btns {
+    display: flex;
+    gap: 25px;
+    justify-content: center;
+  }
+
+  table{
+    text-align: center;
+  }
+  
+  th{
+    font-size: 20px;
+  }
+</style>
+
+<h2>Table of Users</h2>
+<table class="table table-hover table-dark">
+  <thead>
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">EMAIL</th>
+      <th scope="col">USERNAME</th>
+      <th scope="col">ACTIONS</th>
+    </tr>
+  </thead>
+  <tbody>
+    {{#each users}}
+    <tr>
+      <td>{{this.id}}</td>
+      <td>{{this.username}}</td>
+      <td>{{this.email}}</td>
+      <td>
+
+        <div class="actions-btns">
+          <form action="/admin/dashboard_admin/user/{{this.id}}" method="GET">
+            <button type="get" class="btn btn-info">INFO</button>
+          </form>
+          <form action="/admin/delete_user" method="POST">
+            <input type="hidden" name="userId" value="{{this.id}}">
+           <!-- <button type="submit" class="btn btn-primary">DELETE</button> -->
+            <button type="submit" class="btn btn-danger">DELETE</button>
+          </form>
+
+        </div>
+      </td>
+    </tr>
+    {{/each}}
+  </tbody>
+</table>
+
+
+
+<h2>Table of Admins</h2>
+<table class="table table-hover table-dark">
+  <thead>
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">EMAIL</th>
+      <th scope="col">USERNAME</th>
+      <th scope="col">IS VERIFY</th>
+      <th scope="col">VERIFY</th>
+    </tr>
+  </thead>
+  <tbody>
+    {{#each admins}}
+    <tr>
+      <td>{{ this.id }}</td>
+      <td>{{ this.email }}</td>
+      <td>{{ this.username }}</td>
+      <td>{{ this.is_verify }}</td>
+      <td>
+        {{#if this.is_verify}}
+          Verified
+        {{else}}
+          <form action="/admin/verify_admin" method="POST">
+            <input type="hidden" name="adminId" value="{{ this.id }}">
+            <button type="submit" class="btn btn-success">VERIFY</button>
+          </form>
+        {{/if}}
+      </td>
+    </tr>
+    {{/each}}
+  </tbody>
+</table>
+
+
+<h2>Table of Artists</h2>
+<table class="table table-hover table-dark">
+  <thead>
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">Name</th>
+      <th scope="col">Popularity</th>
+    </tr>
+  </thead>
+  <tbody>
+    {{#each artists}}
+    <tr>
+      <td>{{ this.id }}</td>
+      <td>{{ this.name }}</td>
+      <td>{{ this.popularity }}</td>
+    </tr>
+    {{/each}}
+  </tbody>
+</table>

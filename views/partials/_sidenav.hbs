@@ -1,0 +1,67 @@
+<div class="wrapper">
+
+    <nav id="sidebar">
+        <div id="dismiss">
+            <i class="bi bi-box-arrow-in-left"></i>
+        </div>
+
+        <div class="sidebar-header">
+            <h4>Music App</h4>
+        </div>
+
+        <ul class="navbar-nav mx-auto">
+            <li class="nav-item mt-2 mb-2 {{#is title "Music App"}} active {{/is}}">
+                <a class="nav-link" href="/"><i class="bi bi-house-heart-fill"></i>Homepage<span class="sr-only">(current)</span></a>
+            </li>
+
+            {{#if loggedIn }}
+                <li class="nav-item mt-2 mb-2 {{#is title "playlist_albums"}} active {{/is}}">
+                    <a class="nav-link" href="/playlist_albums"><i class="bi bi-music-note-list"></i>Playlist Albums</a>
+                </li>
+                <li class="nav-item mt-2 mb-2 {{#is title "playlist_tracks"}} active {{/is}}">
+                    <a class="nav-link" href="/playlist_tracks"><i class="bi bi-music-note-list"></i>Playlist Tracks</a>
+                </li>
+                <li class="nav-item mt-2 mb-2 {{#is title "logout"}} active {{/is}}">
+                    <a class="nav-link" href="/autentification/logout"><i class="bi bi-box-arrow-left"></i></i>Logout</a>
+                </li>
+            {{else}}
+                <li class="nav-item mt-2 mb-2 {{#is title "Login"}} active {{/is}}">
+                    <a class="nav-link" href="/autentification/login"><i class="bi bi-box-arrow-right"></i></>Login</a>
+                </li>
+                <li class="nav-item mt-2 mb-2 {{#is title "Sign Up"}} active {{/is}}">
+                    <a class="nav-link" href="/autentification/signup"><i class="bi bi-person-fill-add"></i>Sign Up</a>
+                </li>
+            {{/if}}
+
+        </ul>
+    </nav>
+
+    <div id="content">
+
+        <nav class="navbar navbar-expand-md" id="navbar-top">
+            <div class="container-fluid">
+
+                <button type="button" id="sidebarCollapse" class="btn" style="background-color: black;">
+                    <i class="bi bi-text-left"></i>
+                </button>
+
+                 {{#if loggedIn }}
+                    <form class="form-inline my-2 my-lg-0">
+                        <input id="search-keywords" class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                        <button class="btn my-2 my-sm-0" id="search" type="submit"><i class="bi bi-search"></i></button>
+                    </form>
+                {{/if}}  
+
+                <ul class="navbar-nav">
+                    {{#if loggedIn }}
+                        <li class="nav-item" id="user">
+                            <div class="nameLogUser">{{username}}<i class="bi bi-person-fill-check"></i></div> 
+                        </li>
+                    {{/if}}    
+                </ul>
+
+
+            </div>
+        </nav>
+    </div>
+</div>

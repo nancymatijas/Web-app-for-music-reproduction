@@ -1,4 +1,5 @@
-# Naziv projekta: WEB APLIKACIJA ZA REPRODUKCIJU GLAZBE
-Aplikacija omogućava pregled glazbenog sadržaja koji se dobiva sa Spotify API-ja. 
-Izgled i struktura aplikacije rađeni su pomoću opisnih jezika HTML i CSS, dok je funkcionalni dio aplikacije napravljen u JavaScript skriptnom jeziku. 
-Za izradu baze podataka korišten je MySQL programski jezik.
+## Naziv projekta: 
+# WEB APLIKACIJA ZA REPRODUKCIJU GLAZBE
+* Aplikacija omogućava pregled glazbenog sadržaja koji se dobiva sa Spotify API-ja. 
+* **Frontend:** Izgled i struktura aplikacije implementirani su korištenjem HTML-a i CSS-a, uz korištenje Bootstrap okvira za responsivni dizajn. Funkcionalni aspekt razvijen je u JavaScript programskom jeziku.
+* **Backend:** Aplikacija koristi Node.js kao serverski okruženje za izradu backend logike, dok je za upravljanje podacima korišten MySQL sustav upravljanja bazama podataka.
